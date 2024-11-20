@@ -26,17 +26,17 @@ export default function App() {
     <PaperProvider>
       <UserProvider>
         <NavigationContainer>
-          <StackApp.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
-            <StackApp.Screen name="Splash" component={SplashPage} />
-            <StackApp.Screen name="HomeApp" component={DrawerNavigator} />
+          <StackApp.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+            {/* <StackApp.Screen name="Splash" component={SplashPage} /> */}
+            {/* <StackApp.Screen name="HomeApp" component={DrawerNavigator} /> */}
             <StackApp.Screen name="Login" component={LoginScreen} />
-            <StackApp.Screen name="Register" component={RegisgerScreen} />
-            <StackApp.Screen name="RegisterAuth" component={RegisgerAuthScreen} />
-            <StackApp.Screen name="PhoneAuth" component={PhoneAuthScreen} />
-            <StackApp.Screen name="PhoneAuthResetPassword" component={PhoneAuthResetPasswordScreen} />
-            <StackApp.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-            <StackApp.Screen name="ResetPassword" component={ResetPasswordScreen} />
-            <StackApp.Screen name="Cinetpay" component={PaymentScreen} />
+            {/* <StackApp.Screen name="Register" component={RegisgerScreen} /> */}
+            {/* <StackApp.Screen name="RegisterAuth" component={RegisgerAuthScreen} /> */}
+            {/* <StackApp.Screen name="PhoneAuth" component={PhoneAuthScreen} /> */}
+            {/* <StackApp.Screen name="PhoneAuthResetPassword" component={PhoneAuthResetPasswordScreen} /> */}
+            {/* <StackApp.Screen name="ForgotPassword" component={ForgotPasswordScreen} /> */}
+            {/* <StackApp.Screen name="ResetPassword" component={ResetPasswordScreen} /> */}
+            {/* <StackApp.Screen name="Cinetpay" component={PaymentScreen} /> */}
           </StackApp.Navigator>
         </NavigationContainer>
       </UserProvider>
