@@ -1,46 +1,46 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import DrawerNavigator from "./src/navigators/DrawerNavigator";
+import { PaperProvider } from 'react-native-paper';
+import SplashPage from "./src/pages/SplashPage";
+import Toast from 'react-native-toast-message';
+import { UserProvider } from "./src/context/userContext";
+import LoginScreen from "./src/pages/Auth/LoginPage";
+import RegisgerScreen from "./src/pages/Auth/RegistrationPage";
+import RegisgerAuthScreen from "./src/pages/Auth/RegistrationAuthPage";
+import PhoneAuthScreen from "./src/pages/Auth/PhoneAuthPage";
+import ForgotPasswordScreen from "./src/pages/Auth/RegistrationForgotPasswordPage";
+import ResetPasswordScreen from "./src/pages/Auth/ResetPasswordPage";
+import PaymentScreen from "./src/pages/Payment/PaymentScreen";
+import PhoneAuthResetPasswordScreen from './src/pages/Auth/PhoneAuthResetPasswordPage'
+
+const StackApp = createStackNavigator();
 
 
-function App(){
+export default function App() {
+
+  // const token = await AsyncStorage.getItem('token');
+  
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.box}>
-        <Text style={styles.title}>Welcome to React Native</Text>
-        <Text style={styles.subtitle}>This is your boilerplate App.js!</Text>
-      </View>
-    </SafeAreaView>
+    <PaperProvider>
+      <UserProvider>
+        <NavigationContainer>
+          <StackApp.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+            <StackApp.Screen name="Splash" component={SplashPage} />
+            <StackApp.Screen name="HomeApp" component={DrawerNavigator} />
+            <StackApp.Screen name="Login" component={LoginScreen} />
+            <StackApp.Screen name="Register" component={RegisgerScreen} />
+            <StackApp.Screen name="RegisterAuth" component={RegisgerAuthScreen} />
+            <StackApp.Screen name="PhoneAuth" component={PhoneAuthScreen} />
+            <StackApp.Screen name="PhoneAuthResetPassword" component={PhoneAuthResetPasswordScreen} />
+            <StackApp.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+            <StackApp.Screen name="ResetPassword" component={ResetPasswordScreen} />
+            <StackApp.Screen name="Cinetpay" component={PaymentScreen} />
+          </StackApp.Navigator>
+        </NavigationContainer>
+      </UserProvider>
+      <Toast />
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f9fa', // Light gray background
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  box: {
-    padding: 20,
-    backgroundColor: '#007bff', // Blue background
-    borderRadius: 10,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#f8f9fa',
-  },
-});
-
-export default App;
